@@ -5,6 +5,12 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 100vh;
+
   background-color: #f2f4f5;
   font-family: sans-serif;
 }
@@ -13,7 +19,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 3rem;
+
+  margin-top: -6em;
 }
 
 form {
@@ -36,6 +43,30 @@ select {
   font-size: 16px;
   border: 2px solid #e0e0e0;
   border-radius: 7px;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+
+  &:focus:invalid {
+    border-color: rgb(208, 4, 55);
+  }
+
+  &:valid,
+  &:focus:valid {
+    border-color: rgb(0, 180, 93);
+    color: rgb(0, 124, 64);
+  }
+}
+
+form.was-validated {
+  input,
+  select {
+    &:invalid {
+      border-color: rgb(208, 4, 55);
+    }
+  }
 }
 
 select {
@@ -48,8 +79,15 @@ label span {
   font-weight: bold;
 }
 
+.error {
+  padding: 1px;
+  font-size: 14px;
+  font-weight: normal;
+  color: rgb(208, 4, 55);
+}
+
 label + label {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 button {
@@ -61,4 +99,21 @@ button {
   font-size: 16px;
   border-radius: 7px;
   cursor: pointer;
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
+}
+
+.message,
+.go-back {
+  max-width: 400px;
+  display: none;
+}
+
+.message {
+  text-align: center;
+  font-size: 20px;
+  color: rgb(0, 124, 64);
 }

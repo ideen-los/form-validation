@@ -10,7 +10,8 @@
       <form novalidate>
         <label for="mail"
           ><span>E-Mail</span>
-          <input type="email" name="mail" id="mail" required />
+          <input type="email" name="mail" id="mail" placeholder="" required />
+          <span class="error mail-error"></span>
         </label>
 
         <label for="country"
@@ -324,11 +325,19 @@
               <option value="CY">Zypern</option>
             </optgroup>
           </select>
+          <span class="error country-error"></span>
         </label>
 
         <label for="zip"
           ><span>Postleitzahl</span>
-          <input type="text" name="zip" id="zip" pattern="\b\d{5}\b" required />
+          <input
+            type="text"
+            name="zip"
+            id="zip"
+            pattern="\b\d{5}\b"
+            placeholder=""
+            required />
+          <span class="error zip-error"></span>
         </label>
 
         <label for="password"
@@ -338,7 +347,9 @@
             name="password"
             id="password"
             pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"
+            placeholder=""
             required />
+          <span class="error password-error"></span>
         </label>
 
         <label for="password-confirm"
@@ -347,11 +358,16 @@
             type="password"
             name="password-confirm"
             id="passwordConfirm"
+            placeholder=""
             required />
+          <span class="error password-confirm-error"></span>
         </label>
 
-        <button type="submit">Registrieren</button>
+        <button type="submit">Abschießen</button>
       </form>
+
+      <div class="message">Ihre Daten wurden erfolgreich übermittelt.</div>
+      <button class="go-back">Zurück zum Formular</button>
     </div>
   </body>
 </html>
